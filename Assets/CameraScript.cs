@@ -4,66 +4,87 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
-    [SerializeField] private Vector2 _rotationSpeed;
-    [SerializeField] private Vector2 _clamp;
-    private Transform _xAxis;
+    private Transform _waypointWorld;
+    private Transform _waypointPlayer;
+
+    [SerializeField] private float _easeSpeed = 3;
+
+    [HideInInspector] public enum CameraState {
+        World,
+        Player
+        }
+    public CameraState State = CameraState.World;
+
+    private bool _ease = false;
+    private float _easeDistance = 0;
 
 	// Use this for initialization
 	void Start () {
-        _xAxis = transform.GetChild(0);	
+        //find waypoints
+        _waypointWorld = transform.parent;
+        _waypointPlayer = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1).GetChild(0).GetChild(0);
+        //detach camera
+        transform.parent = null;
 	}
 	
 	// Update is called once per frame
 	void Update ()
         {
-        transform.Rotate(Vector3.up, Input.GetAxisRaw("HorizontalCam") * _rotationSpeed.x);
-
-        //clamp rotation
-        Vector3 newRot = _xAxis.localEulerAngles;
-        newRot.x += Input.GetAxisRaw("VerticalCam") * _rotationSpeed.y;
-        newRot.x = ClampAngle(newRot.x, _clamp.x, _clamp.y);
-        _xAxis.localEulerAngles = newRot;
+        SetPositionRotation();
+        if (Input.GetButtonDown("Switch View"))
+            {
+            ToggleState();
+            }
         }
 
-    public static float ClampAngle(float angle, float min, float max)
+    private void SetPositionRotation()
         {
-        angle = Mathf.Repeat(angle, 360);
-        min = Mathf.Repeat(min, 360);
-        max = Mathf.Repeat(max, 360);
-        bool inverse = false;
-        var tmin = min;
-        var tangle = angle;
-        if (min > 180)
+        //see what the current waypoint is
+        Transform curWaypoint = _waypointWorld;
+        Transform prevWaypoint = _waypointPlayer;
+        if (State == CameraState.Player)
             {
-            inverse = !inverse;
-            tmin -= 180;
-            }
-        if (angle > 180)
-            {
-            inverse = !inverse;
-            tangle -= 180;
-            }
-        var result = !inverse ? tangle > tmin : tangle < tmin;
-        if (!result)
-            angle = min;
-
-        inverse = false;
-        tangle = angle;
-        var tmax = max;
-        if (angle > 180)
-            {
-            inverse = !inverse;
-            tangle -= 180;
-            }
-        if (max > 180)
-            {
-            inverse = !inverse;
-            tmax -= 180;
+            curWaypoint = _waypointPlayer;
+            prevWaypoint = _waypointWorld;
             }
 
-        result = !inverse ? tangle < tmax : tangle > tmax;
-        if (!result)
-            angle = max;
-        return angle;
+        //do ease
+        if (_ease)
+            {
+            transform.position = Vector3.Lerp(transform.position, curWaypoint.position, _easeSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(prevWaypoint.rotation, curWaypoint.rotation, 1 - (Vector3.Distance(transform.position, curWaypoint.position) / _easeDistance));
+
+            //stop ease
+            if (Vector3.Distance(transform.position, curWaypoint.position) <= 0.2f)
+                {
+                _ease = false;
+                }
+            }
+        else
+            {
+            if (State == CameraState.Player)
+                transform.position = Vector3.Lerp(transform.position, curWaypoint.position, _easeSpeed * Time.deltaTime);
+            else
+                transform.position = curWaypoint.position;
+
+            transform.rotation = curWaypoint.rotation;
+            }
         }
-    }
+
+    public void ToggleState()
+        {
+        //start ease
+        _ease = true;
+        //change state
+        if (State == CameraState.Player)
+            {
+            State = CameraState.World;
+            _easeDistance = Vector3.Distance(transform.position, _waypointWorld.position);
+            }
+        else
+            {
+            State = CameraState.Player;
+            _easeDistance = Vector3.Distance(transform.position, _waypointPlayer.position);
+            }
+        }
+}
