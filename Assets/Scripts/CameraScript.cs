@@ -17,15 +17,12 @@ public class CameraScript : MonoBehaviour {
 	void Update ()
         {
         transform.Rotate(Vector3.up, Input.GetAxisRaw("HorizontalCam") * _rotationSpeed.x);
-        _xAxis.Rotate(Vector3.right, Input.GetAxisRaw("VerticalCam") * _rotationSpeed.y);
 
         //clamp rotation
-        Vector3 newRot = _xAxis.eulerAngles;
+        Vector3 newRot = _xAxis.localEulerAngles;
+        newRot.x += Input.GetAxisRaw("VerticalCam") * _rotationSpeed.y;
         newRot.x = ClampAngle(newRot.x, _clamp.x, _clamp.y);
-        _xAxis.eulerAngles = newRot;
-
-        //fix weird angle bug
-
+        _xAxis.localEulerAngles = newRot;
         }
 
     public static float ClampAngle(float angle, float min, float max)
