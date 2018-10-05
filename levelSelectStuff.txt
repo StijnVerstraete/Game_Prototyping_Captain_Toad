@@ -1,0 +1,8 @@
+Level number
+Level title
+Level gems
+Level optional goal
+Level image
+Last Played
+Best Coin Run
+
