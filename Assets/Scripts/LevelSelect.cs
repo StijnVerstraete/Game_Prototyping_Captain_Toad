@@ -11,7 +11,10 @@ public class LevelSelect : MonoBehaviour {
     private bool _inputDelayed = false;
 
     //relevant UI elements
-    public Text LevelNumber;
+    public Image LevelImage;
+
+    //level text assets
+    public Sprite[] LevelImageSprites;
 
 	void Start ()
     {
@@ -36,11 +39,11 @@ public class LevelSelect : MonoBehaviour {
             _inputDelayed = false;
         }
         //check level boundaries
-        if (_levelSelected == -1)
+        if (_levelSelected == 3)
         {
             _levelSelected = 2;
         }
-        if (_levelSelected == 3)
+        if (_levelSelected == -1)
         {
             _levelSelected = 0;
         }
@@ -50,13 +53,13 @@ public class LevelSelect : MonoBehaviour {
 	}
     private void TextAssign()
     {
-        LevelNumber.text = "" + _levelSelected;
+        LevelImage.sprite = LevelImageSprites[_levelSelected];
     }
     private void LoadLevel()
     {
-        if (Input.GetButtonDown("joystick button 2"))
+        if (Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene(_levelSelected);
+            SceneManager.LoadScene(_levelSelected + 1);
         }
     }
 }
