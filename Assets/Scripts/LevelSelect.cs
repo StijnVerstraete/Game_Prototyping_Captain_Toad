@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour {
 
-    private int _levelSelected;
+    public int LevelSelected;
 
     private bool _inputDelayed = false;
 
@@ -26,12 +26,12 @@ public class LevelSelect : MonoBehaviour {
         //switch level screens
 		if (Input.GetAxis("Horizontal") == -1 && _inputDelayed == false)
         {
-            _levelSelected -= 1;
+            LevelSelected -= 1;
             _inputDelayed = true;
         }
         else if (Input.GetAxis("Horizontal") == 1 && _inputDelayed == false)
         {
-            _levelSelected += 1;
+            LevelSelected += 1;
             _inputDelayed = true;
         }
         else if (Input.GetAxis("Horizontal") == 0)
@@ -39,13 +39,13 @@ public class LevelSelect : MonoBehaviour {
             _inputDelayed = false;
         }
         //check level boundaries
-        if (_levelSelected == 3)
+        if (LevelSelected == 3)
         {
-            _levelSelected = 2;
+            LevelSelected = 2;
         }
-        if (_levelSelected == -1)
+        if (LevelSelected == -1)
         {
-            _levelSelected = 0;
+            LevelSelected = 0;
         }
         //assign the correct text
         TextAssign();
@@ -53,13 +53,13 @@ public class LevelSelect : MonoBehaviour {
 	}
     private void TextAssign()
     {
-        LevelImage.sprite = LevelImageSprites[_levelSelected];
+        LevelImage.sprite = LevelImageSprites[LevelSelected];
     }
     private void LoadLevel()
     {
         if (Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene(_levelSelected + 1);
+            SceneManager.LoadScene(LevelSelected + 1);
         }
     }
 }
