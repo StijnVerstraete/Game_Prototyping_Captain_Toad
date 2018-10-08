@@ -16,6 +16,12 @@ public class LevelSelect : MonoBehaviour {
     //level text assets
     public Sprite[] LevelImageSprites;
 
+    //script
+    public LevelStats LevelStatsScript;
+
+    [SerializeField]
+    private Sprite _noGem;
+
 	void Start ()
     {
 		
@@ -28,11 +34,19 @@ public class LevelSelect : MonoBehaviour {
         {
             LevelSelected -= 1;
             _inputDelayed = true;
+            foreach (Image Gem in LevelStatsScript.Gem)
+            {
+                Gem.sprite = _noGem;
+            }
         }
         else if (Input.GetAxis("Horizontal") == 1 && _inputDelayed == false)
         {
             LevelSelected += 1;
             _inputDelayed = true;
+            foreach (Image Gem in LevelStatsScript.Gem)
+            {
+                Gem.sprite = _noGem;
+            }
         }
         else if (Input.GetAxis("Horizontal") == 0)
         {

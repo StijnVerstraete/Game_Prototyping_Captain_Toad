@@ -46,30 +46,40 @@ public class LevelStats : MonoBehaviour {
         {
             //enable UI elements
             Star.enabled = true;
-            //CoinsCollectedText.enabled = true;
-            //foreach (Image Gem in Gem)
-            //{
-            //    Gem.enabled = true;
-            //}
+            CoinsCollectedText.enabled = true;
+            foreach (Image Gem in Gem)
+            {
+                Gem.enabled = true;
+            }
             //update UI elements
             if (LevelCompleted[LevelSelectScripts.LevelSelected] == true)
             {
                 Star.sprite = _star;
+                CoinsCollectedText.text = "Best Coin Run:" + CoinsCollected[LevelSelectScripts.LevelSelected];
+                for (int i = 0; i < GemsCollected[LevelSelectScripts.LevelSelected]; i++)
+                {
+                    Gem[i].sprite = _gem;
+                }
             }
             else if (LevelCompleted[LevelSelectScripts.LevelSelected] == false)
             {
                 Star.sprite = _noStar;
+                CoinsCollectedText.text = "";
+                foreach (Image Gem in Gem)
+                {
+                    Gem.sprite = _noGem;
+                }
             }
         }
         else
         {
             //disable UI elements
             Star.enabled = false;
-            //CoinsCollectedText.enabled = false;
-            //foreach (Image Gem in Gem)
-            //{
-            //  Gem.enabled = false;
-            //}
+            CoinsCollectedText.enabled = false;
+            foreach (Image Gem in Gem)
+            {
+              Gem.enabled = false;
+            }
         }
 	}
 }
