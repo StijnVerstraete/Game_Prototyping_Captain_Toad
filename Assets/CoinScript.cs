@@ -15,10 +15,13 @@ public class CoinScript : MonoBehaviour {
     [SerializeField, Range(0,1)] private float _slowdownTurnStep;
     [SerializeField] private float _invisibleAlpha;
     [SerializeField] private float _jump;
+    [SerializeField] private float _grav;
 
     private Vector3 _startPos;
     private Color _initColor;
     private float _realSpeed;
+    private Vector3 _vel;
+    private bool _doJump;
 
     // Use this for initialization
     void Start () {
@@ -43,22 +46,29 @@ public class CoinScript : MonoBehaviour {
             newColor.a = Mathf.MoveTowards(newColor.a, _initColor.a, _visibleStep);
             _rend.material.color = newColor;
             }
+        if (_doJump)
+            {
+            _vel.y -= _grav;
+            }
 
-        _model.transform.localPosition = Vector3.Lerp(_model.transform.localPosition, _startPos, 0.2f);
+        if (_model.transform.localPosition.y < 0)
+            {
+            Destroy(gameObject);
+            }
+
         _realSpeed = Mathf.Lerp(_realSpeed, _turnSpeed, _slowdownTurnStep);
         _model.transform.Rotate(Vector3.up, _realSpeed, Space.World);
+
+        _model.transform.localPosition += _vel;
 	}
 
     private void OnTriggerExit(Collider other)
         {
         if (other.CompareTag("Player") && other.GetComponent<PlayerScript>())
             {
-            _realSpeed = _showTurnSpeed;
             if (_isInvisible)
-                {
-                _model.transform.localPosition = new Vector3(_startPos.x, _startPos.y + _jump, _startPos.z);
-                _isInvisible = false;
-                }
+                _realSpeed = _showTurnSpeed;
+            _isInvisible = false;
             }
         }
 
@@ -67,9 +77,10 @@ public class CoinScript : MonoBehaviour {
         if (other.CompareTag("Player") && other.GetComponent<PlayerScript>())
             {
             _realSpeed = _touchTurnSpeed;
-            if (!_isInvisible)
+            if (!_isInvisible && !_doJump)
                 {
-                _model.transform.localPosition = new Vector3(_startPos.x, _startPos.y + _jump, _startPos.z);
+                _vel.y = _jump;
+                _doJump = true;
                 }
             }
         }
