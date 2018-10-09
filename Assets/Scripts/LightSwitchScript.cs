@@ -6,6 +6,7 @@ public class LightSwitchScript : MonoBehaviour {
 
     GameObject[] platforms;
     public bool isLightOn = false;
+    bool isKeyDown = false;
     int timer;
     public int becomeVisibleTime;
 
@@ -41,6 +42,18 @@ public class LightSwitchScript : MonoBehaviour {
         {
             timer = 0;
             isLightOn = false;
+        }
+
+        //if key is down, set isKeyDown true
+        if (Input.GetKeyDown(KeyCode.E)==true)
+        {
+            isKeyDown = true;
+        }
+
+        //if key is not down, set isKeyDown false
+        if (Input.GetKeyDown(KeyCode.E) == false)
+        {
+            isKeyDown = false;
         }
     }
 
