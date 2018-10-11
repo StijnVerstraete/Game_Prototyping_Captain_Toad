@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+<<<<<<< HEAD
   - Stats
+=======
+  - Light
+>>>>>>> 3d25ab9c3d2ebd95a2bf3350b7030d68fa7909de
   layers:
   - Default
   - TransparentFX
