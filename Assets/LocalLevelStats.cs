@@ -11,7 +11,7 @@ public class LocalLevelStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        _stats = GameObject.FindGameObjectWithTag("Stats").GetComponent<LevelStats>();
+        //_stats = GameObject.FindGameObjectWithTag("Stats").GetComponent<LevelStats>();
 	}
 	
 	// Update is called once per frame
