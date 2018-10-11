@@ -178,13 +178,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8cd64194927e643b0306ccfff8bbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInvisible: 1
+  _isInvisible: 0
   _visibleStep: 0.2
   _turnSpeed: 5
   _touchTurnSpeed: 10
   _showTurnSpeed: 20
   _slowdownTurnStep: 0.063
-  _invisibleAlpha: 0.4
+  _invisibleAlpha: 0.6
   _jump: 0.8
   _grav: 0.14
   _appearDis: 3

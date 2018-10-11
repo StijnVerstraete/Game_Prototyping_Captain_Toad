@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class LightScript : MonoBehaviour {
 
-    GameObject[] _platforms;
-    float _timer;
-    Light _light;
+    [HideInInspector] public float Timer;
     [SerializeField] private float _timeStep;
+    [SerializeField] private bool _autoLight;
+    [SerializeField] private float _autoLightFrequency;
+
+    private GameObject[] _platforms;
+    private Light _light;
     private float _intensityStart;
 
 
@@ -21,18 +24,36 @@ public class LightScript : MonoBehaviour {
 
     private void Update()
     {
-        _light.intensity = Mathf.Lerp(0, _intensityStart, _timer);
+        if (_autoLight)
+            {
+            //automatically fade light in and out
+            Timer = Mathf.Sin(Time.frameCount * _autoLightFrequency);
+            }
+        else
+            {
+            //fade light out
+            Timer = Mathf.MoveTowards(Timer, 0, _timeStep * Time.deltaTime);
+            }
+
 
         //if light is on, change opacity of all platforms to 0, and start timer
             foreach (GameObject platform in _platforms)
             {
-                platform.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f, _timer);
+                platform.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f, Timer);
             }
-        _timer = Mathf.MoveTowards(_timer, 0, _timeStep * Time.deltaTime);
+        //change actual light component
+        _light.intensity = Mathf.Lerp(0, _intensityStart, Timer);
+
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.Joystick1Button6))
+            {
+            LightOn();
+            }
     }
 
+    [ContextMenu("TestSwitch")]
     public void LightOn()
     {
-        _timer = 1;
+        Timer = 1;
     }
 }

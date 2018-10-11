@@ -25,6 +25,8 @@ public class CoinScript : MonoBehaviour {
     private bool _doJump;
     private Transform _player;
     private LocalLevelStats _localStats;
+    private float _curAlpha = 0;
+    private LightScript _light;
 
     // Use this for initialization
     void Start () {
@@ -35,7 +37,7 @@ public class CoinScript : MonoBehaviour {
         _startPos = _model.transform.localPosition;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _localStats = GameObject.FindGameObjectWithTag("GameController").GetComponent<LocalLevelStats>();
-        
+        _light = GameObject.FindGameObjectWithTag("Light").GetComponent<LightScript>();
 	}
 	
 	// Update is called once per frame
@@ -44,26 +46,26 @@ public class CoinScript : MonoBehaviour {
         float dis = Vector3.Distance(_player.position, transform.position);
         if (!_isInvisible && _rend.material.color.a != 1)
             {
-            Color newColor = _rend.material.color;
-            newColor.a = Mathf.MoveTowards(newColor.a, _initColor.a, _visibleStep);
-            _rend.material.color = newColor;
+            _curAlpha = Mathf.MoveTowards(_curAlpha, _initColor.a, _visibleStep);
             }
 
+        //show coin on player nearby or light (whatever is higher) when invisible
         if (_isInvisible)
             {
-            if (dis < _appearDis && dis > 0)
+            float alphaLight = _light.Timer * _invisibleAlpha;
+            float alphaDistance = Mathf.Lerp(0, _invisibleAlpha, 1 - (dis / _appearDis));
+            if (alphaDistance > alphaLight && dis > 0)
                 {
-                Color newCol = _rend.material.color;
-                newCol.a = Mathf.Lerp(0, _invisibleAlpha, 1 - (dis / _appearDis));
-                _rend.material.color = newCol;
+                _curAlpha = alphaDistance;
                 }
             else
                 {
-                Color newCol = _rend.material.color;
-                newCol.a = 0;
-                _rend.material.color = newCol;
+                _curAlpha = alphaLight;
                 }
             }
+        Color newColor = _rend.material.color;
+        newColor.a = _curAlpha;
+        _rend.material.color = newColor;
 
         //collect animation
         if (_doJump)
