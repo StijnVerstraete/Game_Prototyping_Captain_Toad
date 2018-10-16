@@ -8,7 +8,8 @@ public class CoinScript : MonoBehaviour {
     private MeshRenderer _rend;
 
     [SerializeField] private bool _isInvisible;
-    [SerializeField] private float _visibleStep;
+    [SerializeField] private bool _isGem;
+    [SerializeField, Space] private float _visibleStep;
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _touchTurnSpeed;
     [SerializeField] private float _showTurnSpeed;
@@ -31,7 +32,7 @@ public class CoinScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _model = transform.GetChild(0).gameObject;
-        _rend = _model.transform.GetChild(0).GetComponent<MeshRenderer>();
+        _rend = _model.GetComponent<MeshRenderer>();
         _initColor = _rend.material.color;
         _realSpeed = _turnSpeed;
         _startPos = _model.transform.localPosition;
@@ -77,7 +78,15 @@ public class CoinScript : MonoBehaviour {
         //collect
         if (_model.transform.localPosition.y < 0)
             {
-            _localStats.CoinsCollected++;
+            
+            if (_isGem)
+                {
+                _localStats.GemsCollected++;
+                }
+            else
+                {
+                _localStats.CoinsCollected++;
+                }
             Destroy(gameObject);
             }
 

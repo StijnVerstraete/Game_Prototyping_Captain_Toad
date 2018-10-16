@@ -34,9 +34,21 @@ public class LevelStats : MonoBehaviour {
     //levelselect script
     public LevelSelect LevelSelectScripts;
 
+    //keeps track if a levelstats already exists
+    static public GameObject StatsInstance;
+
 	void Start ()
     {
-        DontDestroyOnLoad(gameObject);
+        //don't destroy on load if a statsinstance doesn't already exist
+        if (StatsInstance)
+            {
+            Destroy(gameObject);
+            }
+        else
+            {
+            StatsInstance = gameObject;
+            DontDestroyOnLoad(gameObject);
+            }
 	}
 	
 	// Update is called once per frame

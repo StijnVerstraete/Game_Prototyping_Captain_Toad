@@ -30,7 +30,7 @@ public class CameraWaypointScript : MonoBehaviour {
 	void Update ()
         {
         //is camera active
-        if ((_isWorld && _cam.State == CameraScript.CameraState.World) || (!_isWorld && _cam.State == CameraScript.CameraState.Player))
+        if ((_isWorld && _cam.State == CameraScript.CameraState.World) || (!_isWorld && (_cam.State == CameraScript.CameraState.Player || _cam.State == CameraScript.CameraState.PlayerZoom)))
             {
             if (_isWorld)
                 {
@@ -43,6 +43,17 @@ public class CameraWaypointScript : MonoBehaviour {
                     {
                     transform.position = Vector3.Lerp(transform.position, Vector3.zero + (Vector3.Scale(_player.position, new Vector3(1, 0, 1)) / 1.5f), Time.deltaTime * 5);
                     //transform.position = Vector3.zero + (Vector3.Scale(_player.position, new Vector3(1, 0, 1)));
+                    }
+                }
+            else //player
+                {
+                if (_cam.State == CameraScript.CameraState.PlayerZoom)
+                    {
+                    transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one / 2, Time.deltaTime * 5);
+                    }
+                else
+                    {
+                    transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * 5);
                     }
                 }
             }

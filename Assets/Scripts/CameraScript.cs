@@ -11,7 +11,8 @@ public class CameraScript : MonoBehaviour {
 
     [HideInInspector] public enum CameraState {
         World,
-        Player
+        Player,
+        PlayerZoom
         }
     public CameraState State = CameraState.World;
 
@@ -42,7 +43,7 @@ public class CameraScript : MonoBehaviour {
         //see what the current waypoint is
         Transform curWaypoint = _waypointWorld;
         Transform prevWaypoint = _waypointPlayer;
-        if (State == CameraState.Player)
+        if (State == CameraState.Player || State == CameraState.PlayerZoom)
             {
             curWaypoint = _waypointPlayer;
             prevWaypoint = _waypointWorld;
@@ -62,7 +63,7 @@ public class CameraScript : MonoBehaviour {
             }
         else
             {
-            if (State == CameraState.Player)
+            if (State == CameraState.Player || State == CameraState.PlayerZoom)
                 transform.position = Vector3.Lerp(transform.position, curWaypoint.position, _easeSpeed * Time.deltaTime);
             else
                 transform.position = curWaypoint.position;
@@ -75,16 +76,23 @@ public class CameraScript : MonoBehaviour {
         {
         //start ease
         _ease = true;
+        
         //change state
-        if (State == CameraState.Player)
+        switch (State)
             {
-            State = CameraState.World;
-            _easeDistance = Vector3.Distance(transform.position, _waypointWorld.position);
-            }
-        else
-            {
-            State = CameraState.Player;
-            _easeDistance = Vector3.Distance(transform.position, _waypointPlayer.position);
+            case CameraState.World:
+                State = CameraState.Player;
+                _easeDistance = Vector3.Distance(transform.position, _waypointPlayer.position);
+                break;
+            case CameraState.Player:
+                State = CameraState.PlayerZoom;
+                break;
+            case CameraState.PlayerZoom:
+                State = CameraState.World;
+                _easeDistance = Vector3.Distance(transform.position, _waypointWorld.position);
+                break;
+            default:
+                break;
             }
         }
 }

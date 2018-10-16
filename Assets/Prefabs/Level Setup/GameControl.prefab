@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224014631090371562}
   - component: {fileID: 222416398577028568}
   - component: {fileID: 114247777557498858}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CurrentStats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224217170864545606}
   - component: {fileID: 222396448217367318}
   - component: {fileID: 114887815361337908}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224339763972705810}
   - component: {fileID: 222236718689692652}
   - component: {fileID: 114144749731822676}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CoinIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 223103569474605202}
   - component: {fileID: 114498387148896610}
   - component: {fileID: 114613370820945966}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,8 +132,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602031652814320}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67794096, y: 1.2628121, z: -0.9612894}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8293215, y: 0.41066885, z: -1.2180653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224641398140127358}
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinsCollected: 0
+  GemsCollected: 0
   _coinText: {fileID: 114887815361337908}
 --- !u!114 &114887815361337908
 MonoBehaviour:
