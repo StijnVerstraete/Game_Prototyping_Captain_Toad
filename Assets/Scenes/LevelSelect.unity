@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 1670701296}
   m_Layer: 0
   m_Name: GameStats
-  m_TagString: Untagged
+  m_TagString: Stats
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,9 +1029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82aa854cf4e5fbf44b925ebd3c9053c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemsCollected: 030000000200000000000000
-  CoinsCollected: fc0000001600000000000000
-  LevelCompleted: 010100
+  GemsCollected: 020000000200000000000000
+  CoinsCollected: 000000000200000000000000
+  LevelCompleted: 000000
   Star: {fileID: 852344940}
   Gem:
   - {fileID: 1493471711}

@@ -12,7 +12,8 @@ public class LocalLevelStats : MonoBehaviour {
     [SerializeField] private Text _coinText;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         _stats = GameObject.FindGameObjectWithTag("Stats").GetComponent<LevelStats>();
 	}
 	

@@ -49,6 +49,9 @@ public class LevelStats : MonoBehaviour {
             StatsInstance = gameObject;
             DontDestroyOnLoad(gameObject);
             }
+        //search for objects in scene
+        
+
 	}
 	
 	// Update is called once per frame
@@ -81,16 +84,6 @@ public class LevelStats : MonoBehaviour {
                 {
                     Gem.sprite = _noGem;
                 }
-            }
-        }
-        else
-        {
-            //disable UI elements
-            Star.enabled = false;
-            CoinsCollectedText.enabled = false;
-            foreach (Image Gem in Gem)
-            {
-              Gem.enabled = false;
             }
         }
 	}
