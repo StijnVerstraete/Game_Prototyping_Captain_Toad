@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: ebbda3bf8c3ec7b4d9edd503c39e09e1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: AllRoot
+    100002: Armature
+    100004: ArmL1
+    100006: ArmL2
+    100008: ArmR1
+    100010: ArmR2
+    100012: FootL
+    100014: FootR
+    100016: //RootNode
+    100018: GhostPlayer__GhostPlayerMat00
+    100020: GhostPlayer__GhostPlayerMat01
+    100022: GhostPlayer__GhostPlayerMat02
+    100024: HairL1
+    100026: HairL2
+    100028: HairL3
+    100030: HairR1
+    100032: HairR2
+    100034: HairR3
+    100036: HandR
+    100038: Head
+    100040: Hip
+    100042: JointRoot
+    100044: LegL1
+    100046: LegL2
+    100048: LegR1
+    100050: LegR2
+    100052: ShoulderL
+    100054: ShoulderR
+    100056: Spine1
+    100058: Spine2
+    100060: ToeL
+    100062: ToeR
+    400000: AllRoot
+    400002: Armature
+    400004: ArmL1
+    400006: ArmL2
+    400008: ArmR1
+    400010: ArmR2
+    400012: FootL
+    400014: FootR
+    400016: //RootNode
+    400018: GhostPlayer__GhostPlayerMat00
+    400020: GhostPlayer__GhostPlayerMat01
+    400022: GhostPlayer__GhostPlayerMat02
+    400024: HairL1
+    400026: HairL2
+    400028: HairL3
+    400030: HairR1
+    400032: HairR2
+    400034: HairR3
+    400036: HandR
+    400038: Head
+    400040: Hip
+    400042: JointRoot
+    400044: LegL1
+    400046: LegL2
+    400048: LegR1
+    400050: LegR2
+    400052: ShoulderL
+    400054: ShoulderR
+    400056: Spine1
+    400058: Spine2
+    400060: ToeL
+    400062: ToeR
+    2100000: GhostPlayerMat00
+    2100002: GhostPlayerMat01
+    2100004: GhostPlayerMat02
+    4300000: GhostPlayer__GhostPlayerMat00
+    4300002: GhostPlayer__GhostPlayerMat01
+    4300004: GhostPlayer__GhostPlayerMat02
+    9500000: //RootNode
+    13700000: GhostPlayer__GhostPlayerMat00
+    13700002: GhostPlayer__GhostPlayerMat01
+    13700004: GhostPlayer__GhostPlayerMat02
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
