@@ -9,7 +9,7 @@ public class LightScript : MonoBehaviour {
     [SerializeField] private bool _autoLight;
     [SerializeField] private float _autoLightFrequency;
 
-    private GameObject[] _platforms;
+    private MeshRenderer[] _platforms;
     private Light _light;
     private float _intensityStart;
 
@@ -17,7 +17,13 @@ public class LightScript : MonoBehaviour {
     private void Start()
     {
         //find all platforms with Platform tag
-        _platforms = GameObject.FindGameObjectsWithTag("Platform");
+        List<MeshRenderer> meshes = new List<MeshRenderer>();
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Platform"))
+            {
+            meshes.Add(obj.GetComponent<MeshRenderer>());
+            }
+        _platforms = meshes.ToArray();
+
         _light = this.GetComponent<Light>();
         _intensityStart = _light.intensity;
     }
@@ -37,9 +43,18 @@ public class LightScript : MonoBehaviour {
 
 
         //if light is on, change opacity of all platforms to 0, and start timer
-            foreach (GameObject platform in _platforms)
+        foreach (MeshRenderer platform in _platforms)
             {
-                platform.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f, Timer);
+
+            platform.material.color = new Color(1f, 1f, 1f, Timer);
+            if (Timer <= 0.2f)
+                {
+                platform.enabled = false;
+                }
+            else
+                {
+                platform.enabled = true;
+                }
             }
         //change actual light component
         _light.intensity = Mathf.Lerp(0, _intensityStart, Timer);

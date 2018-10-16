@@ -6,10 +6,12 @@ public class SwitchScript : MonoBehaviour {
 
     LightScript _light;
     bool _inCollider=false;
+    private GameObject _canvas;
 
 	// Use this for initialization
 	void Start () {
         _light = GameObject.FindGameObjectWithTag("Light").GetComponent<LightScript>();
+        _canvas = transform.GetChild(0).gameObject;
 	}
 	
 	// Update is called once per frame
@@ -26,6 +28,7 @@ public class SwitchScript : MonoBehaviour {
         {
             _inCollider = true;
         }
+        _canvas.SetActive(true);
     }
 
     private void OnTriggerExit(Collider col)
@@ -33,6 +36,7 @@ public class SwitchScript : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             _inCollider = false;
+            }
+        _canvas.SetActive(false);
         }
-    }
 }

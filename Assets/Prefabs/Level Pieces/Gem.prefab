@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4362331880316374}
   - component: {fileID: 114969883269622630}
   - component: {fileID: 135487617560622488}
+  - component: {fileID: 114725200593860742}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547584822966624}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 2, z: 0.5}
+  m_LocalPosition: {x: -4, y: 2, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4655736727933872}
@@ -114,6 +115,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556657876159826}
   m_Mesh: {fileID: 4300000, guid: 4dc8d19a3919b7245b816f7a261f2fc6, type: 3}
+--- !u!114 &114725200593860742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547584822966624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90df5bb09410a84282d97fd52aaa999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114969883269622630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8cd64194927e643b0306ccfff8bbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInvisible: 1
+  _isInvisible: 0
   _isGem: 1
   _visibleStep: 0.2
   _turnSpeed: 3

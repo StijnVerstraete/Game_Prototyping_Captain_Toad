@@ -19,7 +19,7 @@ public class CoinScript : MonoBehaviour {
     [SerializeField] private float _grav;
     [SerializeField] private float _appearDis;
 
-    private Vector3 _startPos;
+    //private Vector3 _startPos;
     private Color _initColor;
     private float _realSpeed;
     private Vector3 _vel;
@@ -35,7 +35,7 @@ public class CoinScript : MonoBehaviour {
         _rend = _model.GetComponent<MeshRenderer>();
         _initColor = _rend.material.color;
         _realSpeed = _turnSpeed;
-        _startPos = _model.transform.localPosition;
+        //_startPos = _model.transform.localPosition;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         _localStats = GameObject.FindGameObjectWithTag("GameController").GetComponent<LocalLevelStats>();
         _light = GameObject.FindGameObjectWithTag("Light").GetComponent<LightScript>();
