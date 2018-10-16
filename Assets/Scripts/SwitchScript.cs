@@ -14,7 +14,7 @@ public class SwitchScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (_inCollider==true && Input.GetKeyDown(KeyCode.E))
+        if (_inCollider==true && Input.GetButtonDown("Submit"))
         {
             _light.LightOn();
         }

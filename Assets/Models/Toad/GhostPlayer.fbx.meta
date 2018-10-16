@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 2e7d7b3a0a35f0a48ad66b64f0c0c4d2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: AllRoot
+    100002: ArmL1
+    100004: ArmL2
+    100006: ArmR1
+    100008: ArmR2
+    100010: FootL
+    100012: FootR
+    100014: //RootNode
+    100016: GhostPlayer__GhostPlayerMat00
+    100018: GhostPlayer__GhostPlayerMat01
+    100020: GhostPlayer__GhostPlayerMat02
+    100022: HairL1
+    100024: HairL2
+    100026: HairL3
+    100028: HairR1
+    100030: HairR2
+    100032: HairR3
+    100034: HandR
+    100036: Head
+    100038: Hip
+    100040: JointRoot
+    100042: LegL1
+    100044: LegL2
+    100046: LegR1
+    100048: LegR2
+    100050: ShoulderL
+    100052: ShoulderR
+    100054: Spine1
+    100056: Spine2
+    100058: ToeL
+    100060: ToeR
+    400000: AllRoot
+    400002: ArmL1
+    400004: ArmL2
+    400006: ArmR1
+    400008: ArmR2
+    400010: FootL
+    400012: FootR
+    400014: //RootNode
+    400016: GhostPlayer__GhostPlayerMat00
+    400018: GhostPlayer__GhostPlayerMat01
+    400020: GhostPlayer__GhostPlayerMat02
+    400022: HairL1
+    400024: HairL2
+    400026: HairL3
+    400028: HairR1
+    400030: HairR2
+    400032: HairR3
+    400034: HandR
+    400036: Head
+    400038: Hip
+    400040: JointRoot
+    400042: LegL1
+    400044: LegL2
+    400046: LegR1
+    400048: LegR2
+    400050: ShoulderL
+    400052: ShoulderR
+    400054: Spine1
+    400056: Spine2
+    400058: ToeL
+    400060: ToeR
+    2100000: GhostPlayerMat00
+    2100002: GhostPlayerMat01
+    2100004: GhostPlayerMat02
+    4300000: GhostPlayer__GhostPlayerMat00
+    4300002: GhostPlayer__GhostPlayerMat01
+    4300004: GhostPlayer__GhostPlayerMat02
+    9500000: //RootNode
+    13700000: GhostPlayer__GhostPlayerMat00
+    13700002: GhostPlayer__GhostPlayerMat01
+    13700004: GhostPlayer__GhostPlayerMat02
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftHand' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
