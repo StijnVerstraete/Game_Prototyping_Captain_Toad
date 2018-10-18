@@ -9,7 +9,10 @@ public class LocalLevelStats : MonoBehaviour {
     public int CoinsCollected = 0;
     public int GemsCollected = 0;
     private LevelStats _stats;
-    [SerializeField] private Text _coinText;
+    [SerializeField]
+    private Text _coinText;
+    [SerializeField]
+    private Text _gemText;
 
 	// Use this for initialization
 	void Start ()
@@ -18,8 +21,10 @@ public class LocalLevelStats : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         _coinText.text = CoinsCollected.ToString();
+        _gemText.text = GemsCollected.ToString() + " / 3";
 	}
 
     public void LevelCompletion()

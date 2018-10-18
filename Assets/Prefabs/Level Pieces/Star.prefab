@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4827026298590094}
   - component: {fileID: 95343916865482302}
   - component: {fileID: 114941843091594618}
+  - component: {fileID: 114256288108381488}
+  - component: {fileID: 65866181932718606}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -93,8 +95,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654423752381840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 2, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.65, y: 0.14785671, z: -6.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4653498699248268}
@@ -143,6 +145,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407927322072692}
   m_Mesh: {fileID: 4300000, guid: 02d06df370118804c990eb353aea021d, type: 3}
+--- !u!65 &65866181932718606
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654423752381840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6630564, y: 1.7494023, z: 2.1870165}
+  m_Center: {x: -0.020171165, y: 0.37470114, z: -0.11007452}
 --- !u!95 &95343916865482302
 Animator:
   serializedVersion: 3
@@ -161,6 +175,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114256288108381488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654423752381840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c2d29691c4a14e8172f0c5db26339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocalStats: {fileID: 0}
 --- !u!114 &114941843091594618
 MonoBehaviour:
   m_ObjectHideFlags: 1

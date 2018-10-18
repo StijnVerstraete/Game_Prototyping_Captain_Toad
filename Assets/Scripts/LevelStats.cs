@@ -15,22 +15,6 @@ public class LevelStats : MonoBehaviour {
     //levels completed
     public bool[] LevelCompleted;
 
-    //ui stat elements on main menu
-    public Image Star;
-    public Image[] Gem;
-    public Text CoinsCollectedText;
-
-    //possible sprites
-
-    [SerializeField]
-    private Sprite _noStar;
-    [SerializeField]
-    private Sprite _star;
-    [SerializeField]
-    private Sprite _noGem;
-    [SerializeField]
-    private Sprite _gem;
-
     //levelselect script
     public LevelSelect LevelSelectScripts;
 
@@ -49,42 +33,15 @@ public class LevelStats : MonoBehaviour {
             StatsInstance = gameObject;
             DontDestroyOnLoad(gameObject);
             }
-        //search for objects in scene
         
-
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelSelect"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelSelect") && LevelSelectScripts == null)
         {
-            //enable UI elements
-            Star.enabled = true;
-            CoinsCollectedText.enabled = true;
-            foreach (Image Gem in Gem)
-            {
-                Gem.enabled = true;
-            }
-            //update UI elements
-            if (LevelCompleted[LevelSelectScripts.LevelSelected] == true)
-            {
-                Star.sprite = _star;
-                CoinsCollectedText.text = "Best Coin Run:" + CoinsCollected[LevelSelectScripts.LevelSelected];
-                for (int i = 0; i < GemsCollected[LevelSelectScripts.LevelSelected]; i++)
-                {
-                    Gem[i].sprite = _gem;
-                }
-            }
-            else if (LevelCompleted[LevelSelectScripts.LevelSelected] == false)
-            {
-                Star.sprite = _noStar;
-                CoinsCollectedText.text = "";
-                foreach (Image Gem in Gem)
-                {
-                    Gem.sprite = _noGem;
-                }
-            }
+            LevelSelectScripts = GameObject.FindGameObjectWithTag("LevelSelectScript").GetComponent<LevelSelect>();
         }
 	}
 }

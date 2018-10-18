@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 431592442}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: LevelSelectScript
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,6 +491,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ae9b4be637a27c54fa4c4478dcdbd070, type: 3}
   - {fileID: 21300000, guid: 57c5b6cdbed1f3643a711179615f98da, type: 3}
   LevelStatsScript: {fileID: 1670701296}
+  LevelSelectUI: {fileID: 1266977144}
   _noGem: {fileID: 21300000, guid: 0d9886acdfcfff24e84fbd5089281be4, type: 3}
 --- !u!224 &431592446
 RectTransform:
@@ -601,7 +602,7 @@ GameObject:
   - component: {fileID: 852344940}
   m_Layer: 5
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,6 +728,57 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 885247139}
   m_CullTransparentMesh: 0
+--- !u!1 &1266977143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266977145}
+  - component: {fileID: 1266977144}
+  m_Layer: 0
+  m_Name: GameUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266977144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266977143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4997f0fcd3131604f933e8a961cb4536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Star: {fileID: 852344940}
+  Gem:
+  - {fileID: 1493471711}
+  - {fileID: 1501885282}
+  - {fileID: 2088273975}
+  CoinsCollectedText: {fileID: 1490665404}
+  _noStar: {fileID: 21300000, guid: 2f5fe954d4ff82342833a7426ac13669, type: 3}
+  _star: {fileID: 21300000, guid: 4a32bef746606b64bbc97e0858e8776d, type: 3}
+  _noGem: {fileID: 21300000, guid: 0d9886acdfcfff24e84fbd5089281be4, type: 3}
+  _gem: {fileID: 21300000, guid: ef2616967cc4e6140b7b47fb06d8e869, type: 3}
+  _levelStats: {fileID: 1670701296}
+--- !u!4 &1266977145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266977143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 368.69833, y: 222.76251, z: -7.861084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490665401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,16 +1084,6 @@ MonoBehaviour:
   GemsCollected: 020000000200000000000000
   CoinsCollected: 000000000200000000000000
   LevelCompleted: 000000
-  Star: {fileID: 852344940}
-  Gem:
-  - {fileID: 1493471711}
-  - {fileID: 1501885282}
-  - {fileID: 2088273975}
-  CoinsCollectedText: {fileID: 1490665404}
-  _noStar: {fileID: 21300000, guid: 2f5fe954d4ff82342833a7426ac13669, type: 3}
-  _star: {fileID: 21300000, guid: 4a32bef746606b64bbc97e0858e8776d, type: 3}
-  _noGem: {fileID: 21300000, guid: 0d9886acdfcfff24e84fbd5089281be4, type: 3}
-  _gem: {fileID: 21300000, guid: ef2616967cc4e6140b7b47fb06d8e869, type: 3}
   LevelSelectScripts: {fileID: 431592445}
 --- !u!4 &1670701297
 Transform:

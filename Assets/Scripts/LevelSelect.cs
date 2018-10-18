@@ -18,6 +18,7 @@ public class LevelSelect : MonoBehaviour {
 
     //script
     public LevelStats LevelStatsScript;
+    public LevelSelectUIManager LevelSelectUI;
 
     [SerializeField]
     private Sprite _noGem;
@@ -34,7 +35,7 @@ public class LevelSelect : MonoBehaviour {
         {
             LevelSelected -= 1;
             _inputDelayed = true;
-            foreach (Image Gem in LevelStatsScript.Gem)
+            foreach (Image Gem in LevelSelectUI.Gem)
             {
                 Gem.sprite = _noGem;
             }
@@ -43,7 +44,7 @@ public class LevelSelect : MonoBehaviour {
         {
             LevelSelected += 1;
             _inputDelayed = true;
-            foreach (Image Gem in LevelStatsScript.Gem)
+            foreach (Image Gem in LevelSelectUI.Gem)
             {
                 Gem.sprite = _noGem;
             }
