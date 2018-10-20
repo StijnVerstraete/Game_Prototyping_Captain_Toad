@@ -52,9 +52,13 @@ public class LevelSelectUIManager : MonoBehaviour {
             {
                 Star.sprite = _star;
                 CoinsCollectedText.text = "Best Coin Run:" + _levelStats.CoinsCollected[_levelStats.LevelSelectScripts.LevelSelected];
-                for (int i = 0; i < _levelStats.GemsCollected[_levelStats.LevelSelectScripts.LevelSelected]-1; i++)
+                for (int i = 0; i <= _levelStats.GemsCollected[_levelStats.LevelSelectScripts.LevelSelected]; i++)
                 {
-                    Gem[i].sprite = _gem;
+                    if (i != 0)
+                    {
+                        Gem[i-1].sprite = _gem;
+                    }
+                    
                 }
             }
             else if (_levelStats.LevelCompleted[_levelStats.LevelSelectScripts.LevelSelected] == false)

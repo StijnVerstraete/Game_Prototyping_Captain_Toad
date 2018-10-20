@@ -27,6 +27,6 @@ public class StarPickup : MonoBehaviour {
         }
         _levelStats.LevelCompleted[SceneManager.GetActiveScene().buildIndex-1] = true;
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("LevelSelect");
     }
 }
